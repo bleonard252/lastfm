@@ -70,7 +70,7 @@ class LastFMUnauthorized implements LastFM {
     if (doc.rootElement.getAttribute("status") == "ok") {
       final sk = doc.rootElement.firstElementChild!.getElement('key')!.innerText;
       final un = doc.rootElement.firstElementChild!.getElement('name')!.innerText;
-      return LastFMAuthorized._(apiKey, secret: apiSecret, sessionKey: sk, username: un);
+      return LastFMAuthorized(apiKey, secret: apiSecret, sessionKey: sk, username: un);
     } else {
       throw LastFMError(doc.rootElement.getElement("error")!);
     }
@@ -106,9 +106,11 @@ class LastFMUnauthorized implements LastFM {
   }
 }
 class LastFMAuthorized extends LastFMUnauthorized {
+  /// Feel free to save this value.
   final String sessionKey;
+  /// This is here for your convenience. Also [finishAuthorizeDesktop] fills it.
   final String username;
-  LastFMAuthorized._(String apiKey, {String? secret, required this.sessionKey, required this.username, String? userAgent}) : super(apiKey, secret, userAgent);
+  LastFMAuthorized(String apiKey, {String? secret, required this.sessionKey, required this.username, String? userAgent}) : super(apiKey, secret, userAgent);
 
   @override
   Future<XmlDocument> read(String method, Map<String, String> data, [bool authorize = true]) async {
