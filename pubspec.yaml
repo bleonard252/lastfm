@@ -1,6 +1,6 @@
 name: lastfm
 description: A pure-Dart Last.fm API wrapper
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/bleonard252/lastfm
 
 environment:

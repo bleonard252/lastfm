@@ -130,10 +130,10 @@ packages:
   lastfm:
     dependency: "direct main"
     description:
-      path: "../.."
+      path: ".."
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   lints:
     dependency: "direct dev"
     description:
