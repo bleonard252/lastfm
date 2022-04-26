@@ -1,3 +1,9 @@
+## 0.0.4
+* **BREAKING:** The scrobble `startTime/timestamp` is now actually required (it won't work without it anyway).
+* Removed a stray `print`.
+* Make the scrobble `startTime/timestamp` be passed in seconds.
+* Added a scrobble to the example.
+
 ## 0.0.2
 * Added `LastFMAuthorizedMethods.scrobble` and `LastFMAuthorizedMethods.updateNowPlaying`
 * Moved the example so pub.dev shows it

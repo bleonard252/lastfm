@@ -131,7 +131,6 @@ class LastFMAuthorized extends LastFMUnauthorized {
     final params = {...data, "api_key": apiKey, "method": method, "sk": sessionKey};
     final fd = {...params, "api_sig": sign(params)};
     final resp = await dio.post('/', data: fd, options: Options(contentType: 'application/x-www-form-urlencoded'));
-    print(resp.requestOptions.contentType);
     final doc = XmlDocument.parse(resp.data);
     if (doc.rootElement.getAttribute("status") == "ok" || doc.rootElement.getAttribute("status") == null) {
       return doc;

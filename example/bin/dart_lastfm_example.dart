@@ -12,6 +12,7 @@ void main(List<String> arguments) async {
     stdin.readByteSync();
     lastfm = await lastfm.finishAuthorizeDesktop();
     (lastfm as LastFMAuthorized).read("user.getLovedTracks", {"user": lastfm.username});
-    lastfm.write("track.love", {"track": "GET UP", "artist": "Shinedown"});
+    await lastfm.write("track.love", {"track": "GET UP", "artist": "Shinedown"});
+    lastfm.scrobble(track: "Never Gonna Give You Up", artist: "Rick Astley", startTime: DateTime.now().subtract(Duration(minutes: 2)));
   }
 }

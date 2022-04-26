@@ -14,14 +14,17 @@ extension LastFMAuthorizedHelpers on LastFMAuthorized {
   /// 
   /// As soon as these conditions have been met, the scrobble request may be sent at any time.
   /// It is often most convenient to send a scrobble request when a track has finished playing.
-  Future<void> scrobble({required String track, required String artist, String? album, int? trackNumber, Duration? duration, DateTime? startTime}) {
+  Future<void> scrobble({required String track, required String artist, required DateTime startTime, String? album, int? trackNumber, Duration? duration}) {
     return write("track.scrobble", {
       "track": track,
       "artist": artist,
       if (album != null) "album": album,
       if (trackNumber != null) "trackNumber": trackNumber.toString(),
       if (duration != null) "duration": duration.inSeconds.toString(),
-      if (startTime != null) "timestamp": startTime.toUtc().millisecondsSinceEpoch.toString(),
+      "timestamp": (startTime.toUtc().millisecondsSinceEpoch/1000).truncate().toString(),
+    }).then((value) {
+      print(value.outerXml);
+      print(value.rootElement.firstChild?.firstChild?.getElement("ignoredMessage")?.outerXml);
     });
   }
   /// Used to notify Last.fm that a user has started listening to a track.
