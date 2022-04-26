@@ -1,3 +1,6 @@
+## 0.0.5
+* Remove a stray print 0.0.4 introduced :weary:
+
 ## 0.0.4
 * **BREAKING:** The scrobble `startTime/timestamp` is now actually required (it won't work without it anyway).
 * Removed a stray `print`.

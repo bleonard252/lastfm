@@ -22,9 +22,6 @@ extension LastFMAuthorizedHelpers on LastFMAuthorized {
       if (trackNumber != null) "trackNumber": trackNumber.toString(),
       if (duration != null) "duration": duration.inSeconds.toString(),
       "timestamp": (startTime.toUtc().millisecondsSinceEpoch/1000).truncate().toString(),
-    }).then((value) {
-      print(value.outerXml);
-      print(value.rootElement.firstChild?.firstChild?.getElement("ignoredMessage")?.outerXml);
     });
   }
   /// Used to notify Last.fm that a user has started listening to a track.
