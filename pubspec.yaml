@@ -4,12 +4,12 @@ version: 0.0.5
 homepage: https://github.com/bleonard252/lastfm
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
-  xml: ^6.0.1
-  dio: ^4.0.6
-  crypto: ^3.0.1
+  xml: ^6.5.0
+  dio: ^5.7.0
+  crypto: ^3.0.6
 
 dev_dependencies:
 
