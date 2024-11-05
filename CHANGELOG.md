@@ -1,3 +1,6 @@
+## 0.0.6
+* Bump dependencies to address a vulnerability in Dio
+  * This also bumps the SDK version to 3.0.0 at the oldest.
 ## 0.0.5
 * Remove a stray print 0.0.4 introduced :weary:
 
